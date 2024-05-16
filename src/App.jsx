@@ -9,13 +9,14 @@ function App() {
   const [tipPercentage, setTipPercentage] = useState('');
   const [customTip, setCustomTip] = useState('');
   const [numPeople, setNumPeople] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
   const [totalPerPerson, setTotalPerPerson] = useState(0);
   const [tipPerPerson, setTipPerPerson] = useState(0);
   const [totalWithTipPerPerson, setTotalWithTipPerPerson] = useState(0);
+  const [errorMessage, setErrorMessage] = useState('');
+
 
   function calculateResults() {
-    // Calculate total amount to pay per person
+    //Calculando el total a pagar x persona
     const totalBill = parseFloat(billAmount);
     const tipPercent = customTip ? parseFloat(customTip) : parseFloat(tipPercentage);
     const tipAmount = (totalBill * tipPercent) / 100;
@@ -29,23 +30,36 @@ function App() {
   }
 
   function handleCalculate() {
+    //VALIDACIONES de los calculos
     if (!billAmount || !numPeople) {
-      setErrorMessage('Please fill in all fields.');
+      setErrorMessage('Por favor, llena todos los campos requeridos.');
       return;
     }
   
     if (parseFloat(billAmount) <= 0 || parseInt(numPeople) <= 0) {
-      setErrorMessage('Values must be greater than zero.');
+      setErrorMessage('Los valores deben ser mayores a 0.');
       return;
     }
   
     if (!tipPercentage && !customTip) {
-      setErrorMessage('Please select a tip percentage or enter a custom tip.');
+      setErrorMessage('Selecciona un % de propina o ingresa un % personalizado.');
       return;
     }
   
     setErrorMessage('');
     calculateResults();
+  }
+
+  function handleReset() {
+    //REINICIO de los valores
+    setBillAmount('');
+    setTipPercentage('');
+    setCustomTip('');
+    setNumPeople('');
+    setErrorMessage('');
+    setTotalPerPerson(0);
+    setTipPerPerson(0);
+    setTotalWithTipPerPerson(0);
   }
 
   return (
@@ -68,7 +82,11 @@ function App() {
       />
 
       <button onClick={handleCalculate} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-        Calculate
+        Calcular
+      </button>
+
+      <button onClick={handleReset} className="ml-2 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">
+        Reiniciar 
       </button>
 
       {errorMessage && <p className="text-red-500"> {errorMessage} </p>}

@@ -21,7 +21,7 @@ function TipInput({ tipPercentage, setTipPercentage, customTip, setCustomTip }) 
         id="tipPercentage"
         value={tipPercentage}
         onChange={handleTipChange}
-        disabled={!!customTip} // Disable select if customTip is set
+        disabled={!!customTip} // Disable select IF customTip cambia su valor
       >
         <option value="">Selecciona un porcentaje de propina</option>
         <option value="5">5%</option>
@@ -30,14 +30,14 @@ function TipInput({ tipPercentage, setTipPercentage, customTip, setCustomTip }) 
         <option value="25">25%</option>
         <option value="50">50%</option>
       </select>
-      {/* Disable custom tip input when a percentage is selected */}
+      {/* Disable custom tip when un % es seleccionado */}
       <input
         className={`shadow appearance-none border rounded mt-2 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${tipPercentage && 'bg-gray-200'}`}
         type="number"
-        placeholder="Enter custom tip percentage"
+        placeholder="Ingresa un porcentaje de propina personalizado"
         value={customTip}
         onChange={handleCustomTipChange}
-        disabled={!!tipPercentage} // Disable input if tipPercentage is set
+        disabled={!!tipPercentage} // Disable input IF tipPercentage cambia su valor
       />
     </div>
   )
