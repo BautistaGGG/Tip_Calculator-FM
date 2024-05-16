@@ -63,39 +63,52 @@ function App() {
   }
 
   return (
-    <div className="container mx-auto p-4">
-      <BillInput 
-        billAmount={billAmount} 
-        setBillAmount={setBillAmount} 
-      />
+    <main className="container mx-auto p-8 font-Space-Mono bg-white rounded-md">
+      
+      <section>
+        <BillInput 
+          billAmount={billAmount} 
+          setBillAmount={setBillAmount} 
+        />
 
-      <TipInput
-        tipPercentage={tipPercentage}
-        setTipPercentage={setTipPercentage}
-        customTip={customTip}
-        setCustomTip={setCustomTip}
-      />
+        <TipInput
+          tipPercentage={tipPercentage}
+          setTipPercentage={setTipPercentage}
+          customTip={customTip}
+          setCustomTip={setCustomTip}
+        />
 
-      <PeopleInput 
-        numPeople={numPeople} 
-        setNumPeople={setNumPeople} 
-      />
+        <PeopleInput 
+          numPeople={numPeople} 
+          setNumPeople={setNumPeople} 
+        />
+      </section>
+      
+      <section className='mt-8 bg-[#5E7A7D]'>
+        {errorMessage && <p className="text-red-500"> {errorMessage} </p>}
+        <Results 
+          totalPerPerson={totalPerPerson} 
+          tipPerPerson={tipPerPerson} 
+          totalWithTipPerPerson={totalWithTipPerPerson}
+        />
 
-      <button onClick={handleCalculate} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-        Calcular
-      </button>
+        <button 
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded disabled:opacity-80 disabled:cursor-not-allowed"
+          disabled={billAmount === ''}
+          onClick={handleCalculate}
+        > 
+          Calcular
+        </button>
 
-      <button onClick={handleReset} className="ml-2 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">
-        Reiniciar 
-      </button>
-
-      {errorMessage && <p className="text-red-500"> {errorMessage} </p>}
-      <Results 
-        totalPerPerson={totalPerPerson} 
-        tipPerPerson={tipPerPerson} 
-        totalWithTipPerPerson={totalWithTipPerPerson}
-      />
-    </div>
+        <button 
+          className="ml-2 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded disabled:opacity-80 disabled:cursor-not-allowed"
+          disabled={billAmount === ''} 
+          onClick={handleReset}
+        > 
+          Reiniciar 
+        </button>
+      </section>
+    </main>
   );
 }
 
