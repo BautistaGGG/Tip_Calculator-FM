@@ -12,7 +12,7 @@ function TipInput({ tipPercentage, setTipPercentage, customTip, setCustomTip }) 
 
   return (
     <div className="mb-4">
-      <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="tipPercentage">
+      <label className="block text-gray-700 text-md font-bold mb-2" htmlFor="tipPercentage">
         Porcentaje de propina
       </label>
 

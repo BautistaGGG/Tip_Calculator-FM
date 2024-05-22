@@ -63,8 +63,11 @@ function App() {
   }
 
   return (
-    <main className="container mx-auto p-8 font-Space-Mono bg-white rounded-md">
-      
+  <main className='font-Space-Mono'>
+    <h1 className='text-center text-4xl my-4 text-[#00494d]'>  
+      Splitter
+    </h1>
+    <article className="container mx-auto bg-white p-6 md:p-8 rounded-md md:flex md:justify-center md:gap-8">
       <section>
         <BillInput 
           billAmount={billAmount} 
@@ -84,7 +87,7 @@ function App() {
         />
       </section>
       
-      <section className='mt-8 bg-[#5E7A7D]'>
+      <section className='bg-[#00494d] p-4 rounded-md'>
         {errorMessage && <p className="text-red-500"> {errorMessage} </p>}
         <Results 
           totalPerPerson={totalPerPerson} 
@@ -93,7 +96,7 @@ function App() {
         />
 
         <button 
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded disabled:opacity-80 disabled:cursor-not-allowed"
+          className="bg-white hover:bg-gray-400 text-[#00494d] font-bold py-2 px-4 block my-0 mx-auto md:ml-2 rounded disabled:opacity-80 disabled:cursor-not-allowed"
           disabled={billAmount === ''}
           onClick={handleCalculate}
         > 
@@ -101,14 +104,15 @@ function App() {
         </button>
 
         <button 
-          className="ml-2 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded disabled:opacity-80 disabled:cursor-not-allowed"
+          className="bg-[#26c0ab] hover:bg-[#1c9181] text-gray-800 font-bold py-2 px-4 rounded block mx-auto my-4 md:ml-2 disabled:opacity-80 disabled:cursor-not-allowed"
           disabled={billAmount === ''} 
           onClick={handleReset}
         > 
           Reiniciar 
         </button>
       </section>
-    </main>
+    </article>
+  </main>
   );
 }
 

@@ -6,7 +6,7 @@ function PeopleInput({ numPeople, setNumPeople }) {
     
       return (
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="numPeople">
+          <label className="block text-gray-700 text-md font-bold mb-2" htmlFor="numPeople">
             Numero de personas
           </label>
           

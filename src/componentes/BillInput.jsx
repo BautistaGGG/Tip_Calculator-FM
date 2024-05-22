@@ -7,7 +7,7 @@ function BillInput({ billAmount, setBillAmount }) {
   
     return (
       <div className="mb-4">
-        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="billAmount">
+        <label className="block text-gray-700 text-md font-bold mb-2" htmlFor="billAmount">
           Precio a pagar
         </label>
         <input
